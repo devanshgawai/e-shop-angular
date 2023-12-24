@@ -1,0 +1,46 @@
+<ng-container>
+    <mat-card class="cart__card">
+        <mat-card-header>
+            <mat-card-title>Shopping Cart</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+            <table class="cart__content">
+                <tbody>
+                    <tr *ngIf="cartItems?.length === 0; else _cartItems">
+                        <td colspan="4">No items in the cart</td>
+                    </tr>
+                    <ng-template #_cartItems>
+                        <tr *ngFor="let cartItem of cartItems">
+                            <td style="width:5vw;">
+                                <img [src]="cartItem.thumbnail" width="100%">
+                            </td>
+                            <td>
+                                <h3>{{cartItem.title}}</h3>
+                            </td>
+                            <td>
+                                <strong>{{ cartItem.price }} x {{cartItem.numberOfItems}}</strong>
+                            </td>
+                            <td>
+                                <h3>{{cartItem.totalPrice}}</h3>
+                            </td>
+                            <td>
+                                <button (click)="removeFromCart(cartItem)"><mat-icon>delete</mat-icon></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <!-- <td></td> -->
+                            <td colspan="2">
+                                <h4>Total Price : {{ totalPrice }}</h4>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+                </tbody>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</ng-container>

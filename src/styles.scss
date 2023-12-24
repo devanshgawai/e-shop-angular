@@ -1,0 +1,249 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+$portfolio-typography : mat.define-typography-config($font-family: "Nunito Sans");
+@include mat.core();
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500&family=Roboto:wght@300&display=swap');
+
+
+$portfolio-palette: (
+  50: #e2eff5,
+  100: #b8d7e9,
+  200: #8ebfda,
+  300: #68a6cb,
+  400: #4c95c2,
+  500: #3385ba,
+  600: #2978ae,
+  700: #1e689d,
+  800: #15588c,
+  900: var(--theme_primary),
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+//user-defined variables
+$letter-spacing: 15px;
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$portfolio-primary: mat.define-palette($portfolio-palette, 700);
+$portfolio-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$portfolio-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$portfolio-theme: mat.define-light-theme((color: (primary: $portfolio-primary,
+        accent: $portfolio-accent,
+        warn: $portfolio-warn,
+      ),
+      typography: $portfolio-typography,
+      density:0));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($portfolio-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+:root {
+  --theme_primary: #053c6d;
+}
+
+@mixin applyFlex {
+  display: flex;
+}
+
+.home {
+  @include applyFlex;
+
+  & .hero-banner {
+    width: 40vw;
+    position: relative;
+
+    img {
+      min-width: fit-content;
+      object-fit: cover;
+    }
+
+
+  }
+
+  @media screen and (max-width:968px) {
+    .hero-text {
+      & .btn {
+        flex-direction: column;
+      }
+    }
+  }
+
+  & .hero-text {
+    // color:white;
+    width: 60vw;
+    height: 100vh;
+    // background-color: #1e689d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  & .btn {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    // background-color: black;
+    width: 30vw;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+.slider {
+  position: relative;
+
+  & button {
+    background-color: transparent !important;
+    position: absolute;
+    top: 50px;
+    // left:2px;
+  }
+
+  & .mat-icon {
+    color: white;
+  }
+}
+
+
+.education {
+  max-width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  & .education_details {
+    position: absolute;
+    visibility: hidden;
+    // top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: white;
+  }
+
+  & .card {
+    max-width: 20vw;
+    margin: 1em;
+    transition: all 0.2s ease-in-out;
+   
+
+    &:hover {
+      background-color: var(--theme_primary);
+      opacity: 0.7;
+
+      .education_details {
+        visibility: visible;
+      }
+    }
+
+
+    &img {
+      width: 100%;
+      object-fit: cover;
+
+    }
+  }
+
+
+
+
+}
+
+.products {
+  
+  max-width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  gap: 50px 50px;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  & .card {
+    // background-color: antiquewhite;
+    height: 100%;
+
+    text-align: center;
+    transition: 0.2s all ease-out;
+
+    & img {
+
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .card_button {
+      
+      width:97%;
+      position: absolute;
+      bottom: 0;
+      display:flex;
+      justify-content: space-between;
+      // width: 97%;
+      // margin: 0 auto;
+    }
+
+    & .card_actions{
+     
+      display: flex;
+      justify-content: space-between;
+    
+      button{
+        white-space: nowrap;
+      }
+    }
+
+    &:hover{
+      transform: scale3d(1.05, 1.05, 1)
+    }
+  }
+
+
+}
+
+.login-card{
+  max-width: 30vw;
+  margin:0 auto;
+}

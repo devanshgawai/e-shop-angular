@@ -1,0 +1,28 @@
+.header{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & a{
+        color:#fff;
+        text-decoration: none;
+    }
+
+    & .links{
+        // color:#fff;
+        width:50vw;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    & .icons{
+        // margin-left: 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-width:10vw;
+        // background-color: black;
+    }
+    
+}

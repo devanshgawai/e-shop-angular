@@ -1,0 +1,15 @@
+<!-- <<p>home works!</p> -->
+<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" class="carousel">
+    <div ngxSlickItem *ngFor="let image of images" class="slide">
+        <div style="margin: 0 auto;width:80vw;">
+            <img [src] = "image" alt="IMAGE"/>
+            <div class="centered_btn">
+                <h2>Have a look through the products!</h2>
+                <a role="button" mat-raised-button [routerLink]="['/shop']">Shop Now</a>
+            </div>
+            
+        </div>
+    </div>
+</ngx-slick-carousel>
+
+<!-- <app-dynamic-form></app-dynamic-form> -->

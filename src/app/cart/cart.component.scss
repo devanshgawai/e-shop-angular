@@ -1,0 +1,13 @@
+.cart__card{
+    width:80vw;
+    margin:0 auto;
+    box-shadow: 2x 2px black;
+
+    & .cart__content{
+        width: 100%;
+    }
+
+    td {
+        text-align: center;
+    }
+}

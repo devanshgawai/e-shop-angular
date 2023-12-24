@@ -1,0 +1,31 @@
+<ng-container *ngIf="(isLoading && !error); else productsContainer">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="triangle-skew-spin" [fullScreen]="true">
+        <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+</ng-container>
+
+<ng-container *ngIf="(!isLoading && error); else productsContainer">
+    <p>Something went wrong!</p>
+</ng-container>
+
+
+
+<ng-template #productsContainer>
+    <div class="products">
+        <ng-container *ngFor="let product of products">
+            <app-card [product]="product" [config]="config"></app-card>
+        </ng-container>
+        <!-- <mat-card *ngFor="let product of products" class="card">
+            <img mat-card-image [src]="product.image" [alt]="product.title">
+            <mat-card-content>
+                <p>
+                    <strong>{{product.title}}</strong>
+                </p>
+                <p>{{product.price}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button (click)="addToCart(product)">Add to Cart</button>
+            </mat-card-actions>
+        </mat-card> -->
+    </div>
+</ng-template>

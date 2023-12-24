@@ -1,0 +1,14 @@
+.slide {
+    height: 80vh;
+    width:80vw;
+    object-fit: cover;
+  
+    & .centered_btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%, 50%);
+        color:#fff;
+        letter-spacing: 16px;
+    }
+  }

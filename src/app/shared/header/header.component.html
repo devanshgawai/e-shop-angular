@@ -1,0 +1,27 @@
+<div>
+    <mat-toolbar color="primary" class="header">
+        <span [routerLink]="['/']" [ngStyle]="{cursor: 'pointer'}">Logo</span>
+        <div class="links">
+            <a [routerLink]="['/shop']">Shop</a>
+
+            <!-- <a [routerLink]="['/']">Accesories</a>
+
+            <a [routerLink]="['/']">Accesories</a> -->
+        </div>
+        <div class="icons">
+            <button mat-raised-button [routerLink]="['cart']">
+                <mat-icon>shopping_cart</mat-icon>
+                <span *ngIf="numberOfItems > 0">
+                    {{numberOfItems}}
+                </span>
+            </button>
+            <button mat-button [routerLink]="['login']">
+                <!-- <span> -->
+                    <mat-icon>account_circle</mat-icon>
+                <!-- </span> -->
+            </button>
+            
+        </div>
+    </mat-toolbar>
+
+</div>
